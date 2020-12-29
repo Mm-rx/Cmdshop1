@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -12,10 +13,10 @@ public class ReadExcel {
     /*
     readExcel是什么方法？成员方法
      */
-    public User[] readExcel(File file) {
+    public User[] readExcel(InputStream file) {
         User users[] = null;
         try {
-            XSSFWorkbook xw = new XSSFWorkbook(new FileInputStream(file));
+            XSSFWorkbook xw = new XSSFWorkbook(new FileInputStream(String.valueOf(file)));
             XSSFSheet xs = xw.getSheetAt(0);
             users = new User[xs.getLastRowNum()];
             for (int j = 1; j <= xs.getLastRowNum(); j++) {
