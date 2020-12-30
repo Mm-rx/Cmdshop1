@@ -1,38 +1,39 @@
 public class Product {
-    private String productID;
-    private String productName;
-    private String productPrice;
-    private String productDescribe;
+    private String pID;
+    private String pName;
 
-    public String getProductID() {
-        return productID;
+    public String getpID() {
+        return pID;
     }
 
-    public void setProductID(String productID) {
-        this.productID = productID;
+    public void setpID(String pID) {
+        this.pID = pID;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getpName() {
+        return pName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setpName(String pName) {
+        this.pName = pName;
     }
 
-    public String getProductPrice() {
-        return productPrice;
+    public String getpPrice() {
+        return pPrice;
     }
 
-    public void setProductPrice(String productPrice) {
-        this.productPrice = productPrice;
+    public void setpPrice(String pPrice) {
+        this.pPrice = pPrice;
     }
 
-    public String getProductDescribe() {
-        return productDescribe;
+    public String getpDescribe() {
+        return pDescribe;
     }
 
-    public void setProductDescribe(String productDescribe) {
-        this.productDescribe = productDescribe;
+    public void setpDescribe(String pDescribe) {
+        this.pDescribe = pDescribe;
     }
+
+    private String pPrice;
+    private String pDescribe;
 }
