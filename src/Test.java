@@ -52,6 +52,8 @@ public class Test {
                     }
                     System.out.println("继续购买商品请按1");
                     System.out.println("查看购物车请按2");
+                    System.out.println("继续购买请按3");
+                    System.out.println("结束本次购物请按4");
                     int choose=sc.nextInt();
                     if(choose==1){
                         inProduct = null;
@@ -73,10 +75,38 @@ public class Test {
                         if(product!=null){
                             carts[count++]=product;
                         }
-                    }else if(choose==2){
+                    }if(choose==2){
                         /*
                         查看购物车
                          */
+                        for (Product p : carts) {
+                            System.out.print(p.getpID());
+                            System.out.print("\t" + p.getpName());
+                            System.out.print("\t" + p.getpPrice());
+                            System.out.println("\t" + p.getpDescribe());
+                        }
+                    }if(choose==3){
+                        inProduct = null;
+                        inProduct = Class.forName("Test").getResourceAsStream("/product.xlsx");
+                        readProductExcel = new ReadProductExcel();
+                        products = readProductExcel.getAllProduct(inProduct);
+                        for (Product p : products) {
+                            System.out.print(p.getpID());
+                            System.out.print("\t" + p.getpName());
+                            System.out.print("\t" + p.getpPrice());
+                            System.out.println("\t" + p.getpDescribe());
+                        }
+                        System.out.println("请输入商品ID把该商品加入购物车");
+                        pId = sc.next();
+                        inProduct = null;
+                        inProduct = Class.forName("Test").getResourceAsStream("/product.xlsx");
+                        product = readProductExcel.getProductById(pId, inProduct);
+                        System.out.println("要购买的商品价格：" + product.getpPrice());
+                        if(product!=null){
+                            carts[count++]=product;
+                    }else if(choose==4){
+                            System.out.println("刷我的卡");
+                        }
                     }
                     break;
                 } else {
